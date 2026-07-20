@@ -1,0 +1,1727 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>Mirna Christmas Place 2026</title>
+<meta name="theme-color" content="#efe4c8">
+<meta name="description" content="Vive la magia de nuestra feria navideña 2026. Una experiencia de Almacenes Mirna.">
+<meta name="referrer" content="no-referrer">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Jost:wght@400;500;600&display=block" rel="stylesheet">
+
+<style>
+/* ============ TOKENS ============ */
+:root {
+  --parchment:        #efe4c8;
+  --parchment-dark:   #e2d3ab;
+  --parchment-edge:   #d7c293;
+  --wax:              #7a1f1f;
+  --wax-dark:         #5e1414;
+  --wax-light:        #9a3030;
+  --ink-green:        #1f2a1a;
+  --ink-green-soft:   #3a4a32;
+  --cream:            #fbf6e9;
+  --cream-soft:       #f6efdc;
+  --gold:             #c9a24b;
+  --gold-soft:        #e3c878;
+  --maroon-deep:      #3a0d0d;
+  --text-dim:         #6b5d44;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-script:  'Great Vibes', cursive;
+  --font-ui:      'Jost', 'Segoe UI', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-ui);
+  background: var(--parchment);
+  color: var(--ink-green);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: .01ms !important; 
+    animation-iteration-count: 1 !important; 
+    transition-duration: .01ms !important;
+  }
+}
+
+::selection { 
+  background: var(--gold-soft); 
+  color: var(--maroon-deep); 
+}
+
+.wax-seal:focus-visible,
+.btn:focus-visible,
+.btn-green:focus-visible,
+.modal-close:focus-visible,
+.nav-btn:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.paper-grain {
+  position: fixed; 
+  inset: 0; 
+  pointer-events: none; 
+  z-index: 9000;
+  opacity: .05; 
+  mix-blend-mode: multiply;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(0,0,0,.5) 0, transparent 1px),
+    radial-gradient(circle at 70% 65%, rgba(0,0,0,.4) 0, transparent 1px),
+    radial-gradient(circle at 45% 85%, rgba(0,0,0,.4) 0, transparent 1px);
+  background-size: 3px 3px, 4px 4px, 5px 5px;
+}
+
+/* =====================================================
+   SISTEMA DE LOGO (Mirna + Christmas Place)
+   ===================================================== */
+.brand-lockup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  user-select: none;
+}
+
+.logo-mirna {
+  margin: 0;
+  font-family: var(--font-display);
+  color: var(--wax);
+  font-size: 2.4em; 
+  letter-spacing: 0.05em;
+  line-height: 0.8;
+  position: relative;
+  z-index: 2;
+  text-transform: uppercase;
+}
+
+.logo-cp {
+  margin: -0.1em 0 0 0;
+  font-family: var(--font-script);
+  color: var(--ink-green);
+  font-size: 2.8em; 
+  line-height: 1; 
+  white-space: nowrap; 
+  position: relative;
+  z-index: 1;
+}
+
+.logo-cp .logo-star {
+  font-family: sans-serif;
+  color: var(--ink-green-soft);
+  font-size: 0.4em;
+  vertical-align: super;
+  margin-left: 0.1em;
+}
+
+.envelope-lockup {
+  transform: scale(0.8); 
+  transform-origin: center bottom;
+}
+
+/* =====================================================
+   ENVELOPE INTRO STAGE
+   ===================================================== */
+.envelope-stage {
+  position: fixed; 
+  inset: 0; 
+  z-index: 500;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 38%, #f6ecd2 0%, var(--parchment) 55%, var(--parchment-dark) 100%);
+  transition: opacity .9s ease, visibility .9s ease;
+}
+
+.envelope-stage::before {
+  content: "";
+  position: absolute; 
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(120,95,45,.05) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(120,95,45,.035) 0 1px, transparent 1px 3px);
+  mix-blend-mode: multiply;
+}
+
+.envelope-stage.is-hidden {
+  opacity: 0; 
+  visibility: hidden; 
+  pointer-events: none;
+}
+
+.vignette {
+  position: absolute; 
+  inset: 0;
+  box-shadow: inset 0 0 18vw rgba(60,40,15,.28);
+  pointer-events: none;
+}
+
+.envelope-scene {
+  position: relative;
+  width: min(86vw, 480px);
+  aspect-ratio: 4/3;
+  perspective: 1800px;
+  transition: transform 1.3s cubic-bezier(.4, 0, .2, 1), opacity 1.1s ease;
+  z-index: 10;
+}
+
+.envelope-scene.is-flying { 
+  transform: translateY(22vh) scale(0.72); 
+  opacity: 0; 
+}
+
+.envelope-hint {
+  position: absolute; 
+  bottom: -3.4em; 
+  left: 0; 
+  right: 0; 
+  text-align: center;
+  font-family: var(--font-ui); 
+  letter-spacing: .06em; 
+  font-size: .92rem; 
+  color: var(--text-dim);
+  animation: hintPulse 2.6s ease-in-out infinite;
+}
+
+.envelope-hint.is-hidden { 
+  opacity: 0; 
+  transition: opacity .4s; 
+}
+
+@keyframes hintPulse { 
+  0%, 100% { opacity: .55; transform: translateY(0); } 
+  50% { opacity: 1; transform: translateY(-2px); } 
+}
+
+.envelope-back {
+  position: absolute; 
+  inset: 6% 4%; 
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--wax-dark), var(--maroon-deep) 60%, #2b0a0a);
+  box-shadow: 0 30px 60px -20px rgba(0,0,0,.45); 
+  opacity: 0; 
+  transform: scale(.94);
+  transition: opacity .6s ease .15s, transform .6s ease .15s;
+}
+
+.envelope-back-pattern {
+  position: absolute; 
+  inset: 0; 
+  border-radius: inherit; 
+  overflow: hidden;
+  background-image: radial-gradient(circle at 50% 50%, rgba(201,162,75,.18) 0%, transparent 60%); 
+  opacity: .7;
+}
+
+.envelope-scene.is-open .envelope-back { 
+  opacity: 1; 
+  transform: scale(1); 
+}
+
+/* =====================================================
+   DESTELLO ESTILO DISNEY
+   ===================================================== */
+.magic-sparkle { 
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  width: 0; 
+  height: 0; 
+  z-index: 1000; 
+  opacity: 0; 
+  pointer-events: none; 
+}
+
+.magic-sparkle.is-active { 
+  animation: disneySparkleSweep 3s cubic-bezier(0.25, 0.1, 0.25, 1) forwards; 
+}
+
+.star-container { 
+  position: absolute; 
+  top: -30px; 
+  left: -30px; 
+  width: 60px; 
+  height: 60px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+}
+
+.star { 
+  display: block; 
+  font-size: 5rem; 
+  color: #fff; 
+  text-shadow: 0 0 15px rgba(255,255,255,0.9), 0 0 35px var(--gold-soft); 
+  animation: spinStar 1.8s linear infinite; 
+  z-index: 2; 
+}
+
+.comet-tail {
+  position: absolute; 
+  right: 20px; 
+  top: 50%; 
+  transform: translateY(-50%); 
+  width: 300px; 
+  height: 60px; 
+  background: linear-gradient(to left, rgba(255, 242, 200, 0.9) 0%, rgba(201, 162, 75, 0.4) 50%, transparent 100%);
+  border-radius: 100px; 
+  filter: blur(20px); 
+  z-index: 1;
+}
+
+@keyframes spinStar { 
+  0% { transform: rotate(0deg) scale(1); } 
+  50% { transform: rotate(180deg) scale(1.1); } 
+  100% { transform: rotate(360deg) scale(1); } 
+}
+
+@keyframes disneySparkleSweep {
+  0%   { transform: translate(-200px, 150px) rotate(-45deg) scale(0); opacity: 0; }
+  15%  { transform: translate(-100px, 0px) rotate(-20deg) scale(1.2); opacity: 1; }
+  35%  { transform: translate(50px, -120px) rotate(10deg) scale(1.5); opacity: 1; }
+  55%  { transform: translate(180px, -40px) rotate(45deg) scale(1.3); opacity: 1; }
+  75%  { transform: translate(250px, 80px) rotate(60deg) scale(1.6); opacity: 1; }
+  100% { transform: translate(120vw, -100px) rotate(45deg) scale(2.5); opacity: 0; }
+}
+
+/* =====================================================
+   THE INVITATION PAPER
+   ===================================================== */
+.letter-paper {
+  position: fixed; 
+  left: 50%; 
+  top: 50%; 
+  width: min(54vw, 300px); 
+  height: min(45vw, 250px);
+  transform: translate(-50%, -46%) scale(.35); 
+  background: linear-gradient(180deg, var(--cream) 0%, var(--cream-soft) 100%);
+  border-radius: 6px; 
+  box-shadow: 0 10px 26px rgba(40,25,10,.25); 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  opacity: 0; 
+  pointer-events: none; 
+  z-index: 40;
+  transition: transform 1.3s cubic-bezier(.25, 1, .4, 1), opacity .6s ease, border-radius .8s ease, width 1.2s cubic-bezier(.25, 1, .4, 1), height 1.2s cubic-bezier(.25, 1, .4, 1);
+  font-size: clamp(0.42rem, 2.1vw, 0.72rem); 
+}
+
+.letter-inner { 
+  text-align: center; 
+  padding: 6% 8%; 
+  transition: opacity .35s ease; 
+}
+
+.envelope-scene.is-open ~ .letter-paper { 
+  opacity: 1; 
+  pointer-events: auto; 
+  transform: translate(-50%, -50%) scale(1); 
+}
+
+.envelope-scene.is-flying ~ .letter-paper { 
+  left: 50%; 
+  top: 50%; 
+  width: 100vw; 
+  height: 100vh; 
+  transform: translate(-50%, -50%) scale(1); 
+  border-radius: 0; 
+  z-index: 600; 
+}
+
+.envelope-scene.is-flying ~ .letter-paper .letter-inner { 
+  opacity: 0; 
+}
+
+.envelope-body { 
+  position: absolute; 
+  inset: 0; 
+  z-index: 40; 
+}
+
+.flap { 
+  position: absolute; 
+  background: var(--parchment); 
+  transition: transform 1s cubic-bezier(.6,0,.3,1), opacity .6s ease; 
+  transform-style: preserve-3d; 
+}
+
+.flap::after { 
+  content: ""; 
+  position: absolute; 
+  inset: 0; 
+  background: linear-gradient(135deg, rgba(255,255,255,.18), rgba(0,0,0,.06)); 
+}
+
+.flap-bottom { 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  height: 62%; 
+  clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 50% 38%, 0% 0%); 
+  background: linear-gradient(160deg, #f1e6c9, var(--parchment-dark) 80%); 
+  z-index: 20; 
+  transform-origin: bottom center; 
+  display: flex; 
+  align-items: flex-end; 
+  justify-content: center; 
+  padding-bottom: 12%; 
+  font-size: clamp(0.6rem, 2.5vw, 0.9rem); 
+}
+
+.flap-top { 
+  left: 0; 
+  right: 0; 
+  top: 0; 
+  height: 58%; 
+  clip-path: polygon(0% 0%, 100% 0%, 50% 86%); 
+  background: linear-gradient(200deg, #f3e8cc, var(--parchment) 70%); 
+  z-index: 35; 
+  transform-origin: top center; 
+}
+
+.flap-left { 
+  left: 0; 
+  top: 0; 
+  bottom: 0; 
+  width: 52%; 
+  clip-path: polygon(0% 0%, 0% 100%, 100% 50%); 
+  background: linear-gradient(100deg, var(--parchment-dark), #f0e3c4 75%); 
+  z-index: 25; 
+  transform-origin: left center; 
+}
+
+.flap-right { 
+  right: 0; 
+  top: 0; 
+  bottom: 0; 
+  width: 52%; 
+  clip-path: polygon(100% 0%, 100% 100%, 0% 50%); 
+  background: linear-gradient(260deg, var(--parchment-dark), #f0e3c4 75%); 
+  z-index: 25; 
+  transform-origin: right center; 
+}
+
+.envelope-scene.is-open .flap-top { transform: rotateX(178deg) translateY(2px); }
+.envelope-scene.is-open .flap-left { transform: rotateY(-170deg) translateX(-2px); opacity: .94; }
+.envelope-scene.is-open .flap-right { transform: rotateY(170deg) translateX(2px); opacity: .94; }
+.envelope-scene.is-open .flap-bottom { transform: translateY(8%) scaleY(.96); }
+
+.envelope-scene.is-flying .flap-top, 
+.envelope-scene.is-flying .flap-left, 
+.envelope-scene.is-flying .flap-right, 
+.envelope-scene.is-flying .flap-bottom, 
+.envelope-scene.is-flying .envelope-back { 
+  opacity: 0; 
+  transition: opacity 0.9s ease; 
+}
+
+/* =====================================================
+   WAX SEAL
+   ===================================================== */
+.wax-seal {
+  position: absolute; 
+  left: 50%; 
+  top: 46%; 
+  width: 17%; 
+  aspect-ratio: 1; 
+  min-width: 64px; 
+  transform: translate(-50%,-50%); 
+  border-radius: 50%; 
+  border: none; 
+  cursor: pointer; 
+  padding: 0;
+  background: radial-gradient(circle at 35% 30%, var(--wax-light), var(--wax) 55%, var(--wax-dark) 100%); 
+  box-shadow: 0 6px 14px rgba(60,10,10,.5), inset 0 -4px 8px rgba(0,0,0,.35), inset 0 3px 6px rgba(255,170,150,.25);
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  z-index: 50; 
+  color: rgba(255,235,215,.85); 
+  transition: transform .25s ease, box-shadow .25s ease; 
+  animation: sealBreathe 3.2s ease-in-out infinite;
+}
+
+@keyframes sealBreathe { 
+  0%, 100% { filter: brightness(1); } 
+  50% { filter: brightness(1.08); } 
+}
+
+.wax-seal:hover { transform: translate(-50%,-50%) scale(1.05); }
+.wax-seal:active { transform: translate(-50%,-50%) scale(.97); }
+
+.seal-icon { width: 46%; height: 46%; }
+.seal-crack { position: absolute; inset: 0; border-radius: 50%; background: transparent; opacity: 0; }
+.seal-crack-1 { box-shadow: inset 0 0 0 1px rgba(0,0,0,0); }
+
+.envelope-scene.is-breaking .wax-seal { animation: sealShatter .55s ease forwards; }
+
+@keyframes sealShatter { 
+  0% { transform: translate(-50%,-50%) scale(1); } 
+  35% { transform: translate(-50%,-50%) scale(1.18) rotate(-4deg); } 
+  100% { transform: translate(-50%,-50%) scale(2.6) rotate(8deg); opacity: 0; } 
+}
+
+.envelope-scene.is-breaking .flap-top { transition-delay: .12s; } 
+.envelope-scene.is-breaking .flap-left { transition-delay: .2s; } 
+.envelope-scene.is-breaking .flap-right { transition-delay: .2s; } 
+.envelope-scene.is-breaking .flap-bottom { transition-delay: .05s; }
+
+/* =====================================================
+   MAIN LANDING
+   ===================================================== */
+.main-landing { 
+  position: relative; 
+  background: var(--cream); 
+  min-height: 100vh; 
+  opacity: 0; 
+  visibility: hidden; 
+}
+.main-landing.is-visible { 
+  opacity: 1; 
+  visibility: visible; 
+}
+
+/* =====================================================
+   HERO 3 COLUMNAS
+   ===================================================== */
+.hero {
+  position: relative; 
+  min-height: 100vh; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center;
+  padding: 8vh 4vw; 
+  background: radial-gradient(ellipse at 50% 0%, rgba(201,162,75,.16), transparent 60%), linear-gradient(180deg, var(--cream) 0%, var(--cream-soft) 100%); 
+  overflow: hidden;
+}
+
+.hero::before { 
+  content: ""; 
+  position: absolute; 
+  inset: 0; 
+  background-image: repeating-linear-gradient(0deg, rgba(120,95,45,.04) 0 1px, transparent 1px 3px); 
+  mix-blend-mode: multiply; 
+  pointer-events: none; 
+}
+
+.hero-inner {
+  position: relative; 
+  z-index: 2; 
+  width: 100%; 
+  max-width: 1300px;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  gap: 2rem;
+  opacity: 0; 
+  transform: translateY(18px); 
+  animation: heroRise 1s ease forwards .15s;
+}
+
+@keyframes heroRise { 
+  to { opacity: 1; transform: translateY(0); } 
+}
+
+/* Columna 1: Videos Santa */
+.hero-col-left { 
+  display: flex; 
+  justify-content: center; 
+  width: 100%; 
+}
+.hero-video-container {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: none;
+  position: relative; 
+  
+  /* FIX: Forzar renderizado limpio en bordes y evitar el sangrado */
+  transform: translateZ(0);
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  background-color: var(--cream);
+}
+.hero-video { 
+  width: 104%; 
+  height: 104%; 
+  margin: -2% 0 0 -2%; 
+  display: block;
+  object-fit: cover; 
+}
+
+/* Columna 2: Textos y Cuenta Regresiva */
+.hero-col-center { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center; 
+  width: 100%; 
+}
+
+/* CLASE RESPONSIVA PARA EL TAMAÑO DEL LOGO EN HERO */
+.hero-brand-lockup {
+  font-size: clamp(0.9rem, 5.5vw, 1.6rem);
+}
+
+.hero-brand-top { 
+  margin: 0 0 1.5em; 
+  font-size: .74rem; 
+  letter-spacing: .22em; 
+  color: var(--wax); 
+  font-weight: 600; 
+}
+.hero-sub { 
+  margin: 1.5em 0 0; 
+  font-size: clamp(1rem, 2.6vw, 1.18rem); 
+  color: var(--ink-green-soft); 
+  font-weight: 500; 
+}
+
+.countdown { 
+  margin-top: 2.4em; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  gap: .5em; 
+  width: 100%; 
+}
+.countdown-unit { 
+  background: var(--maroon-deep); 
+  color: var(--cream); 
+  border-radius: 10px; 
+  min-width: 4.4em; 
+  padding: .55em .3em .45em; 
+  box-shadow: 0 8px 18px -6px rgba(58,13,13,.45), inset 0 0 0 1px rgba(201,162,75,.4); 
+}
+.countdown-num { 
+  display: block; 
+  font-family: var(--font-display); 
+  font-weight: 700; 
+  font-size: clamp(1.5rem, 5.5vw, 2.1rem); 
+  font-variant-numeric: tabular-nums; 
+  letter-spacing: .02em; 
+}
+.countdown-label { 
+  display: block; 
+  font-size: .6rem; 
+  letter-spacing: .16em; 
+  color: var(--gold-soft); 
+  margin-top: .25em; 
+}
+.countdown-sep { 
+  font-family: var(--font-display); 
+  font-weight: 700; 
+  font-size: clamp(1.2rem, 4vw, 1.6rem); 
+  color: var(--wax); 
+  transform: translateY(-2px); 
+}
+.countdown-caption { 
+  margin: 1em 0 0; 
+  font-size: .85rem; 
+  letter-spacing: .03em; 
+  color: var(--text-dim); 
+}
+
+/* Columna 3: Carrusel del Hero */
+.hero-col-right {
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  width: 100%; 
+  position: relative; 
+  padding: 0 3rem;
+}
+
+.hero-car-wrap {
+  position: relative; 
+  width: 100%; 
+  overflow-x: auto; 
+  scroll-behavior: smooth;
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  scrollbar-width: none;
+}
+.hero-car-wrap::-webkit-scrollbar { display: none; }
+.hero-car-track { display: flex; gap: 1rem; width: max-content; padding: 0 1rem; }
+
+/* Tarjetas del carrusel Hero */
+.hero-card {
+  width: min(75vw, 320px); 
+  aspect-ratio: 8/5; 
+  border-radius: 20px; 
+  overflow: hidden; 
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.hero-card:hover { transform: translateY(-4px); }
+.hero-card img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Botones universales para carruseles */
+.nav-btn {
+  position: absolute; 
+  top: 50%; 
+  transform: translateY(-50%);
+  background: var(--cream); 
+  border: 1.5px solid var(--gold-soft); 
+  color: var(--ink-green);
+  font-size: 1.5rem; 
+  line-height: 1; 
+  width: 40px; 
+  height: 40px; 
+  border-radius: 50%;
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+  transition: all 0.2s; 
+  z-index: 10;
+}
+.nav-btn:hover { background: var(--gold-soft); color: var(--cream); transform: translateY(-50%) scale(1.05); }
+.nav-btn.prev { left: 0; }
+.nav-btn.next { right: 0; }
+
+.hero-scroll-cue { 
+  position: absolute; 
+  bottom: 2vh; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  width: 24px; 
+  height: 38px; 
+  border: 2px solid var(--wax); 
+  border-radius: 14px; 
+  z-index: 2; 
+}
+.hero-scroll-cue span { 
+  position: absolute; 
+  top: 6px; 
+  left: 50%; 
+  width: 4px; 
+  height: 8px; 
+  background: var(--wax); 
+  border-radius: 2px; 
+  transform: translateX(-50%); 
+  animation: scrollCue 1.8s ease-in-out infinite; 
+}
+@keyframes scrollCue { 
+  0% { opacity: 1; top: 6px; } 
+  70% { opacity: 0; top: 18px; } 
+  100% { opacity: 0; top: 6px; } 
+}
+
+/* ---------- Promo Banner con Videos (MP4) ---------- */
+.promo-banner {
+  background: linear-gradient(135deg, var(--wax-dark), var(--wax)); 
+  color: var(--cream);
+  border-top: 2px solid var(--gold-soft); 
+  border-bottom: 2px solid var(--gold-soft);
+  box-shadow: 0 8px 20px -8px rgba(60,10,10,0.4); 
+  position: relative; 
+  z-index: 5;
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  overflow: hidden;
+  padding: 1em 6vw; 
+  min-height: 120px;
+}
+
+.promo-text-wrap { 
+  position: relative; 
+  z-index: 2; 
+}
+
+.promo-text { 
+  margin: 0; 
+  font-family: var(--font-display); 
+  font-size: clamp(1.1rem, 3vw, 1.6rem); 
+  letter-spacing: 0.03em; 
+  font-weight: 500; 
+}
+
+.promo-highlight { 
+  font-family: var(--font-script); 
+  color: var(--gold-soft); 
+  font-size: 1.6em; 
+  display: inline-block; 
+  padding: 0 0.1em; 
+  transform: translateY(2px); 
+}
+
+.promo-vid {
+  width: 180px; 
+  height: auto; 
+  pointer-events: none;
+  mix-blend-mode: screen; 
+}
+
+.promo-vid.left { display: none; } 
+
+/* ---------- products / carousel interactivo ---------- */
+.products-section { 
+  padding: 9vh 0 7vh; 
+  text-align: center; 
+  background: var(--cream); 
+}
+
+.section-eyebrow { 
+  margin: 0; 
+  font-size: .75rem; 
+  letter-spacing: .22em; 
+  color: var(--wax); 
+  font-weight: 600; 
+}
+
+.section-title { 
+  margin: .3em 0 0; 
+  font-family: var(--font-display); 
+  font-weight: 700; 
+  color: var(--ink-green); 
+  font-size: clamp(1.6rem, 5vw, 2.2rem); 
+}
+
+.prod-car-container { 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  margin-top: 3em; 
+  position: relative; 
+  padding: 0 5vw; 
+}
+
+.prod-car-wrap {
+  position: relative; 
+  width: 100%; 
+  overflow-x: auto; 
+  scroll-behavior: smooth;
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
+  scrollbar-width: none;
+}
+.prod-car-wrap::-webkit-scrollbar { display: none; }
+
+.prod-car-track { 
+  display: flex; 
+  gap: 1.4rem; 
+  width: max-content; 
+  padding: 0 1rem; 
+}
+
+.product-card {
+  position: relative; 
+  flex: 0 0 auto; 
+  width: min(62vw, 240px); 
+  border-radius: 16px; 
+  overflow: hidden;
+  background: var(--parchment); 
+  box-shadow: 0 14px 26px -12px rgba(40,25,10,.28); 
+  aspect-ratio: 4/5;
+  cursor: pointer; 
+  transition: transform 0.2s ease;
+}
+
+.product-card:hover { transform: translateY(-4px); }
+.product-card img { width: 100%; height: 100%; object-fit: cover; }
+
+.carousel-note { 
+  margin: 1.6em 0 0; 
+  font-size: .78rem; 
+  color: var(--text-dim); 
+  font-style: italic; 
+}
+
+/* ---------- details card ---------- */
+.details-section { 
+  padding: 4vh 6vw 11vh; 
+  display: flex; 
+  justify-content: center; 
+  background: linear-gradient(180deg, var(--cream) 0%, var(--cream-soft) 100%); 
+}
+
+.details-card { 
+  position: relative; 
+  width: min(100%, 520px); 
+  background: var(--cream); 
+  border-radius: 18px; 
+  padding: 2.6em 2em 2.4em; 
+  box-shadow: 0 24px 50px -20px rgba(40,25,10,.3); 
+  border: 1px solid var(--gold-soft); 
+  overflow: hidden; 
+}
+
+.details-card-shine { 
+  position: absolute; 
+  top: 0; 
+  left: -60%; 
+  width: 40%; 
+  height: 100%; 
+  background: linear-gradient(75deg, transparent, rgba(255,255,255,.55), transparent); 
+  transform: skewX(-12deg); 
+  animation: cardShine 6s ease-in-out infinite; 
+  pointer-events: none; 
+}
+
+@keyframes cardShine { 
+  0% { left: -60%; } 
+  35% { left: 120%; } 
+  100% { left: 120%; } 
+}
+
+.details-card::before { 
+  content: ""; 
+  position: absolute; 
+  inset: 6px; 
+  border: 1px solid rgba(201,162,75,.5); 
+  border-radius: 13px; 
+  pointer-events: none; 
+}
+
+.details-grid { display: flex; gap: 1.6em; flex-wrap: wrap; }
+.details-block { flex: 1 1 160px; text-align: left; }
+
+.details-label { 
+  display: flex; 
+  align-items: center; 
+  gap: .5em; 
+  margin: 0 0 .5em; 
+  font-family: var(--font-display); 
+  font-weight: 700; 
+  letter-spacing: .06em; 
+  color: var(--wax); 
+  font-size: clamp(.85rem, 2.4vw, .98rem); 
+  text-transform: uppercase; 
+}
+
+.details-icon { width: 1.05em; height: 1.05em; color: var(--wax); flex-shrink: 0; }
+.details-value { margin: 0; font-weight: 600; color: var(--ink-green); font-size: 1.02rem; }
+.details-value-sub { margin: .25em 0 0; font-size: .88rem; color: var(--text-dim); }
+.details-divider { width: 1px; background: var(--gold-soft); align-self: stretch; }
+.details-buttons { display: flex; flex-direction: column; gap: .8em; margin-top: 2em; }
+.reminder-note { margin: 1em 0 0; text-align: center; font-size: .76rem; color: var(--text-dim); font-style: italic; }
+
+.btn { 
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center; 
+  font-family: var(--font-ui); 
+  font-weight: 600; 
+  letter-spacing: .04em; 
+  font-size: .92rem; 
+  padding: .95em 1.4em; 
+  border-radius: 999px; 
+  cursor: pointer; 
+  border: 1.5px solid var(--gold); 
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease; 
+  text-decoration: none; 
+}
+.btn:hover { transform: translateY(-2px); } 
+.btn:active { transform: translateY(0); }
+
+.btn-outline { background: var(--cream); color: var(--ink-green); } 
+.btn-outline:hover { background: #fff; box-shadow: 0 8px 18px -8px rgba(40,25,10,.3); }
+
+.btn-dark { background: var(--ink-green); color: var(--cream); border-color: var(--ink-green); } 
+.btn-dark:hover { background: #16200f; box-shadow: 0 8px 18px -8px rgba(20,15,5,.5); }
+
+.btn-green { background: #6f8350; color: #fff; border-color: #6f8350; width: 100%; margin-top: 1.4em; text-align: center; } 
+.btn-green:hover { background: #5e7242; }
+
+/* ---------- footer ---------- */
+.site-footer { 
+  text-align: center; 
+  padding: 4em 1.5em 3.2em; 
+  background: var(--ink-green); 
+  color: var(--cream-soft); 
+}
+.footer-line { margin: 1.6em 0 0; font-size: .82rem; opacity: .75; }
+.site-footer .brand-lockup { font-size: 0.8rem; } 
+.site-footer .logo-cp { color: var(--gold-soft); }
+
+/* =====================================================
+   MODALS
+   ===================================================== */
+.modal-overlay { 
+  position: fixed; 
+  inset: 0; 
+  z-index: 2000; 
+  background: rgba(20,14,8,.62); 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  padding: 4vh 4vw; 
+  opacity: 0; 
+  visibility: hidden; 
+  transition: opacity .3s ease, visibility .3s ease; 
+}
+.modal-overlay.is-visible { opacity: 1; visibility: visible; }
+
+.modal-card { 
+  position: relative; 
+  background: var(--cream); 
+  border-radius: 18px; 
+  width: min(100%, 480px); 
+  max-height: 88vh; 
+  overflow-y: auto; 
+  padding: 2em 1.8em 1.8em; 
+  box-shadow: 0 30px 60px -20px rgba(0,0,0,.5); 
+  transform: translateY(16px) scale(.97); 
+  transition: transform .32s cubic-bezier(.22,.9,.3,1); 
+}
+.modal-overlay.is-visible .modal-card { transform: translateY(0) scale(1); }
+
+.modal-close { 
+  position: absolute; 
+  top: 1em; 
+  right: 1em; 
+  width: 2em; 
+  height: 2em; 
+  border-radius: 50%; 
+  border: none; 
+  background: transparent; 
+  font-size: 1.5rem; 
+  line-height: 1; 
+  color: var(--ink-green-soft); 
+  cursor: pointer; 
+  z-index: 10; 
+}
+.modal-close:hover { color: var(--wax); }
+
+.modal-title { 
+  margin: 0; 
+  font-family: var(--font-display); 
+  font-weight: 700; 
+  letter-spacing: .04em; 
+  color: var(--ink-green-soft); 
+  text-transform: uppercase; 
+  font-size: 1.15rem; 
+  text-align: center; 
+}
+.modal-subtitle { margin: .4em 0 0; text-align: center; color: var(--text-dim); font-size: .92rem; }
+
+/* Lightbox Pop-up de fotos */
+.lightbox-card { 
+  background: transparent; 
+  box-shadow: none; 
+  padding: 0; 
+  width: min(100%, 600px); 
+  display: flex; 
+  justify-content: center; 
+  overflow: visible; 
+}
+.lightbox-card img { 
+  border-radius: 12px; 
+  max-height: 85vh; 
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
+  object-fit: contain; 
+}
+.lightbox-card .modal-close { 
+  top: -2.5em; 
+  right: 0; 
+  color: var(--cream); 
+}
+.lightbox-card .modal-close:hover { color: var(--gold-soft); }
+
+/* map modal */
+.map-frame { 
+  position: relative; 
+  margin-top: 1.4em; 
+  border-radius: 12px; 
+  overflow: hidden; 
+  height: 280px; 
+  border: 1px solid var(--gold-soft); 
+}
+.map-frame iframe { width: 100%; height: 100%; border: 0; }
+
+.map-pin-photo { 
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%,-50%); 
+  width: 64px; 
+  height: 64px; 
+  border-radius: 50%; 
+  border: 3px solid var(--ink-green-soft); 
+  box-shadow: 0 6px 14px rgba(0,0,0,.35); 
+  overflow: hidden; 
+  background: var(--parchment-dark); 
+  pointer-events: none; 
+}
+.map-pin-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+/* rsvp modal */
+.rsvp-modal-card { 
+  padding: 1.6em 1.2em 1.4em; 
+  overflow: hidden; 
+}
+.rsvp-frame-wrap { 
+  position: relative; 
+  margin-top: 1.2em; 
+  height: 64vh; 
+  max-height: 600px; 
+  border-radius: 12px; 
+  overflow: hidden; 
+  border: 1px solid var(--gold-soft); 
+  background: #fff; 
+}
+.rsvp-iframe { 
+  position: absolute; 
+  top: -320px; 
+  left: 0; 
+  width: 100%; 
+  height: calc(100% + 320px); 
+  border: 0; 
+}
+.rsvp-fade { 
+  position: absolute; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  height: 34px; 
+  background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,.96) 80%); 
+  pointer-events: none; 
+}
+.rsvp-loading { 
+  position: absolute; 
+  inset: 0; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  gap: .8em; 
+  color: var(--text-dim); 
+  font-size: .88rem; 
+  background: #fff; 
+  z-index: 2; 
+  transition: opacity .3s ease; 
+}
+.rsvp-loading.is-hidden { opacity: 0; pointer-events: none; }
+.rsvp-spinner { 
+  width: 28px; 
+  height: 28px; 
+  border-radius: 50%; 
+  border: 3px solid var(--gold-soft); 
+  border-top-color: var(--wax); 
+  animation: spin .8s linear infinite; 
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+@media (min-width: 640px) {
+  .details-grid { flex-wrap: nowrap; }
+  .details-buttons { flex-direction: row; }
+  .btn { flex: 1; min-width: 0; }
+}
+
+@media (max-width: 859px) {
+  .promo-text-wrap { 
+    text-align: left; 
+    width: calc(100% - 140px); 
+  }
+  .promo-vid.right { 
+    position: absolute; 
+    right: -10px; 
+    bottom: 50%; 
+    transform: translateY(50%); 
+    width: 170px; 
+  }
+}
+
+@media (min-width: 860px) {
+  .hero-inner { 
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: center; 
+    max-width: 1400px; 
+  }
+  
+  .hero-col-left, .hero-col-center, .hero-col-right {
+    flex: 1 1 33.33%;
+    min-width: 0;
+  }
+
+  .hero-col-left { justify-content: center; }
+  .hero-col-center { padding: 0 1rem; }
+  .hero-col-right { padding: 0 2rem; justify-content: flex-start; }
+  
+  .hero-video-container { max-width: 450px; min-width: 260px; }
+  
+  .hero-card { width: 280px; aspect-ratio: 4/7; }
+  
+  .promo-banner { padding: 1.5em 6vw; }
+  .promo-text-wrap { text-align: center; flex: 1; }
+  .promo-vid.left { display: block; } 
+  
+  .details-card { width: min(100%, 680px); padding: 2.8em 3em 2.6em; }
+}
+
+@media (max-width: 380px) {
+  .countdown { gap: .35em; }
+  .countdown-unit { min-width: 3.6em; padding: .5em .2em .4em; }
+}
+
+@media (max-height: 680px) and (orientation: landscape) {
+  .hero { min-height: auto; padding: 14vh 6vw 8vh; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="paper-grain" aria-hidden="true"></div>
+
+<section id="envelope-stage" class="envelope-stage">
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="envelope-scene" id="envelopeScene">
+    
+    <div class="envelope-back">
+      <div class="envelope-back-pattern"></div>
+    </div>
+    
+    <div class="envelope-body" id="envelopeBody">
+      <div class="flap flap-top" id="flapTop"></div>
+      <div class="flap flap-left" id="flapLeft"></div>
+      <div class="flap flap-right" id="flapRight"></div>
+      <div class="flap flap-bottom" id="flapBottom">
+        <div class="brand-lockup envelope-lockup"> 
+          <p class="logo-mirna">MIRNA</p>
+          <p class="logo-cp">Christmas Place <span class="logo-star">✦</span></p>
+        </div>
+      </div>
+      
+      <button class="wax-seal" id="waxSeal" aria-label="Tocar el sello para abrir la invitación">
+        <span class="seal-crack seal-crack-1"></span>
+        <span class="seal-crack seal-crack-2"></span>
+        <span class="seal-crack seal-crack-3"></span>
+        <svg viewBox="0 0 100 100" class="seal-icon" aria-hidden="true">
+          <path d="M35 38 a15 15 0 0 1 30 0 v6 h6 a3 3 0 0 1 3 3 v36 a3 3 0 0 1 -3 3 H29 a3 3 0 0 1 -3 -3 V47 a3 3 0 0 1 3 -3 h6 z" fill="none" stroke="currentColor" stroke-width="2.6"/>
+          <path d="M40 55 L48 63 L62 47" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+    
+    <p class="envelope-hint" id="envelopeHint">Toca el sello para abrir tu invitación</p>
+  </div>
+  
+  <div class="letter-paper" id="letterPaper">
+    <div class="letter-inner">
+      <div class="brand-lockup">
+        <p class="logo-mirna">MIRNA</p>
+        <p class="logo-cp">Christmas Place <span class="logo-star">✦</span></p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="magic-sparkle" id="magicSparkle" aria-hidden="true">
+    <div class="star-container">
+      <div class="comet-tail"></div>
+      <span class="star">✦</span>
+    </div>
+  </div>
+</section>
+
+<main id="mainLanding" class="main-landing" aria-hidden="true">
+
+  <header class="hero">
+    <div class="hero-inner">
+      
+      <div class="hero-col-left">
+        <div class="hero-video-container">
+          <!-- Eliminamos el atributo muted de aquí -->
+          <video id="vid-clausy1" class="hero-video" src="Vids/Clausy.mp4" playsinline loop></video>
+        </div>
+      </div>
+
+      <div class="hero-col-center">
+        <p class="hero-brand-top">ALMACENES MIRNA PRESENTA</p>
+        <div class="brand-lockup hero-brand-lockup">
+          <h1 class="logo-mirna">MIRNA</h1>
+          <p class="logo-cp">Christmas Place <span class="logo-star">✦</span></p>
+        </div>
+        <p class="hero-sub">Vive la magia de nuestra feria navideña 2026</p>
+        
+        <div class="countdown" id="countdown" aria-live="polite">
+          <div class="countdown-unit">
+            <span class="countdown-num" id="cd-days">00</span>
+            <span class="countdown-label">Días</span>
+          </div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-unit">
+            <span class="countdown-num" id="cd-hours">00</span>
+            <span class="countdown-label">Horas</span>
+          </div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-unit">
+            <span class="countdown-num" id="cd-mins">00</span>
+            <span class="countdown-label">Mins</span>
+          </div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-unit">
+            <span class="countdown-num" id="cd-secs">00</span>
+            <span class="countdown-label">Secs</span>
+          </div>
+        </div>
+        <p class="countdown-caption">para abrir las puertas del Showroom navideño</p>
+      </div>
+
+      <div class="hero-col-right">
+        <button class="nav-btn prev" id="heroBtnPrev" aria-label="Anterior">‹</button>
+        <div class="hero-car-wrap" id="heroCarWrap">
+          <div class="hero-car-track" id="heroCarTrack"></div>
+        </div>
+        <button class="nav-btn next" id="heroBtnNext" aria-label="Siguiente">›</button>
+      </div>
+      
+    </div>
+    <div class="hero-scroll-cue" aria-hidden="true"><span></span></div>
+  </header>
+
+  <section class="promo-banner" id="promoBanner">
+    <video class="promo-vid left" id="vid-ruleta-left" src="Vids/ruleta-promo.mp4" muted playsinline loop></video>
+    <div class="promo-text-wrap">
+      <p class="promo-text">Recuerda preguntar por la <span class="promo-highlight">ruleta de oportunidades</span> para llevarte muchos premios.</p>
+    </div>
+    <video class="promo-vid right" id="vid-ruleta-right" src="Vids/ruleta-promo.mp4" muted playsinline loop></video>
+  </section>
+
+  <section class="products-section">
+    <p class="section-eyebrow">Recién llegados</p>
+    <h2 class="section-title">Productos nuevos</h2>
+    
+    <div class="prod-car-container">
+      <button class="nav-btn prev" id="prodBtnPrev" aria-label="Anterior">‹</button>
+      <div class="prod-car-wrap" id="prodCarWrap">
+        <div class="prod-car-track" id="prodCarTrack"></div>
+      </div>
+      <button class="nav-btn next" id="prodBtnNext" aria-label="Siguiente">›</button>
+    </div>
+    <p class="carousel-note">* Toca o haz clic en cualquier imagen para verla en detalle</p>
+  </section>
+
+  <section class="details-section" id="detailsSection">
+    <div class="details-card" id="detailsCard">
+      <div class="details-card-shine" aria-hidden="true"></div>
+      <div class="details-grid">
+        <div class="details-block">
+          <p class="details-label">
+            <svg viewBox="0 0 24 24" class="details-icon"><path d="M7 2v3M17 2v3M3.5 9h17M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Fecha & hora
+          </p>
+          <p class="details-value">11 de agosto de 2026</p>
+          <p class="details-value-sub">10:00 am — 7:00 pm</p>
+        </div>
+        
+        <div class="details-divider" aria-hidden="true"></div>
+        
+        <div class="details-block">
+          <p class="details-label">
+            <svg viewBox="0 0 24 24" class="details-icon"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+            Lugar
+          </p>
+          <p class="details-value">Almacenes Mirna — Matriz</p>
+          <p class="details-value-sub">Lorenzo de Garaycoa y Diez de Agosto</p>
+          <p class="details-value-sub">Showroom navideño 2026</p>
+        </div>
+      </div>
+
+      <div class="details-buttons">
+        <button class="btn btn-outline" id="btnMap">Ver ubicación en mapa</button>
+        <button class="btn btn-outline" id="btnRSVP">Confirmar asistencia</button>
+        <button class="btn btn-dark" id="btnReminder">Agendar recordatorio</button>
+      </div>
+      <p class="reminder-note">Se abrirá de forma directa una nueva pestaña de Google Calendar</p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="brand-lockup">
+      <p class="logo-mirna">MIRNA</p>
+      <p class="logo-cp">Christmas Place <span class="logo-star" style="color:var(--cream);">✦</span></p>
+    </div>
+    <p class="footer-line">Una experiencia de Almacenes Mirna</p>
+  </footer>
+</main>
+
+<div class="modal-overlay" id="lightboxModal" aria-hidden="true">
+  <div class="modal-card lightbox-card" role="dialog" aria-modal="true">
+    <button class="modal-close" id="lightboxClose" aria-label="Cerrar">×</button>
+    <img id="lightboxImg" src="" alt="Vista ampliada">
+  </div>
+</div>
+
+<div class="modal-overlay" id="mapModal" aria-hidden="true">
+  <div class="modal-card map-modal-card" role="dialog" aria-modal="true" aria-labelledby="mapModalTitle">
+    <button class="modal-close" id="mapModalClose" aria-label="Cerrar">×</button>
+    <h3 class="modal-title" id="mapModalTitle">Ubicación del evento</h3>
+    <p class="modal-subtitle">Almacenes Mirna — Matriz</p>
+    <div class="map-frame" id="mapFrame">
+      <iframe title="Mapa de ubicación" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Almacenes+Mirna+-+Matriz,-2.1940453,-79.8873176&z=17&output=embed"></iframe>
+      <div class="map-pin-photo" id="mapPinPhoto"><img src="Imgs/pin-mapa.jpg" alt="Pin Almacenes Mirna" id="mapPinImg"></div>
+    </div>
+    <a class="btn btn-green" id="btnDirections" href="https://www.google.com/maps/place/Almacenes+Mirna+-+Matriz/@-2.1941224,-79.8872641,20.75z/data=!4m6!3m5!1s0x902d6e70cb48e6e5:0x89dcc69f673752ee!8m2!3d-2.1940453!4d-79.8873176!16s%2Fg%2F11dxs14t02?entry=ttu&g_ep=EgoyMDI2MDYyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Cómo llegar</a>
+  </div>
+</div>
+
+<div class="modal-overlay" id="rsvpModal" aria-hidden="true">
+  <div class="modal-card rsvp-modal-card" role="dialog" aria-modal="true" aria-labelledby="rsvpModalTitle">
+    <button class="modal-close" id="rsvpModalClose" aria-label="Cerrar">×</button>
+    <h3 class="modal-title" id="rsvpModalTitle">Confirmar asistencia</h3>
+    <div class="rsvp-frame-wrap">
+      <div class="rsvp-loading" id="rsvpLoading"><span class="rsvp-spinner"></span><span>Cargando formulario…</span></div>
+      <iframe id="rsvpIframe" class="rsvp-iframe" src="" data-src="https://docs.google.com/forms/d/e/1FAIpQLSfedSos302Ex8IAuMK7-FrpXMVuezhccrf_VReo1-s_n9575g/viewform?usp=publish-editor&embedded=true" title="Formulario de confirmación de asistencia"></iframe>
+      <div class="rsvp-fade" aria-hidden="true"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Vuelve el audio del sello rompiéndose -->
+<audio id="audio-break" src="Sounds/Break2.mp3" preload="auto"></audio>
+
+<script>
+(function(){
+  "use strict";
+
+  var EVENT_START = new Date("2026-08-11T10:00:00-05:00");
+  var EVENT_END   = new Date("2026-08-11T19:00:00-05:00");
+  var EVENT_TITLE = "Mirna Christmas Place 2026";
+  var EVENT_DESC  = "Vive la magia de nuestra feria navideña 2026. Una experiencia de Almacenes Mirna.";
+  var EVENT_LOCATION = "Almacenes Mirna - Matriz, Lorenzo de Garaycoa y Diez de Agosto";
+
+  var DUMMY_HERO = [{img:""}, {img:""}, {img:""}, {img:""}, {img:""}];
+
+  var stage      = document.getElementById("envelope-stage");
+  var scene      = document.getElementById("envelopeScene");
+  var seal       = document.getElementById("waxSeal");
+  var hint       = document.getElementById("envelopeHint");
+  var mainEl     = document.getElementById("mainLanding");
+  
+  var audioBreak = document.getElementById("audio-break");
+  var clausy1 = document.getElementById("vid-clausy1");
+  var vidRuletaLeft = document.getElementById("vid-ruleta-left");
+  var vidRuletaRight = document.getElementById("vid-ruleta-right");
+
+  var opened = false;
+
+  function startSequence(){
+    if (opened) return;
+    opened = true;
+
+    // --- TRUCO NINJA PARA DESBLOQUEAR EL AUDIO/VIDEO ---
+    // Engañamos al navegador reproduciendo y pausando al instante
+    // para que nos autorice a reproducirlo después de la animación.
+    if(clausy1) {
+      var unlockPromise = clausy1.play();
+      if (unlockPromise !== undefined) {
+        unlockPromise.then(function() {
+          clausy1.pause();
+          clausy1.currentTime = 0;
+        }).catch(function(e){ console.warn("Video bloqueado temporalmente", e); });
+      }
+    }
+
+    // Reproduce el sonido de la cera rompiéndose justo al tocar
+    if (audioBreak) {
+      audioBreak.volume = 0.8;
+      var playBreak = audioBreak.play();
+      if (playBreak !== undefined) {
+        playBreak.catch(function(e) { console.warn("Efecto de sonido bloqueado:", e); });
+      }
+    }
+
+    if(vidRuletaLeft) { 
+      var pLeft = vidRuletaLeft.play();
+      if(pLeft !== undefined) pLeft.catch(function(){}); 
+    }
+    if(vidRuletaRight) { 
+      var pRight = vidRuletaRight.play();
+      if(pRight !== undefined) pRight.catch(function(){}); 
+    }
+
+    hint.classList.add("is-hidden");
+    seal.setAttribute("tabindex", "-1");
+    seal.disabled = true;
+    
+    scene.classList.add("is-breaking");
+
+    setTimeout(function(){
+      scene.classList.add("is-open");
+      document.getElementById("magicSparkle").classList.add("is-active");
+    }, 260);
+
+    setTimeout(function(){
+      scene.classList.add("is-flying");
+    }, 2000); 
+
+    // Después de que acaba la animación, el video de Clausy comienza a sonar (ahora sí con permiso)
+    setTimeout(function(){
+      mainEl.classList.add("is-visible");
+      mainEl.removeAttribute("aria-hidden");
+      stage.classList.add("is-hidden");
+      stage.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      startCountdown();
+      
+      if(clausy1) {
+        var pClausy = clausy1.play();
+        if(pClausy !== undefined) pClausy.catch(function(){});
+      }
+    }, 2850);
+  }
+
+  seal.addEventListener("click", startSequence);
+  seal.addEventListener("keydown", function(e){
+    if (e.key === "Enter" || e.key === " "){ e.preventDefault(); startSequence(); }
+  });
+
+  document.body.style.overflow = "hidden";
+
+  function initCarousel(wrapId, trackId, btnPrevId, btnNextId, dataArray, isHero) {
+    var wrap = document.getElementById(wrapId);
+    var track = document.getElementById(trackId);
+    var btnPrev = document.getElementById(btnPrevId);
+    var btnNext = document.getElementById(btnNextId);
+    if (!wrap || !track) return;
+
+    var isDesktop = window.innerWidth >= 860;
+
+    function renderSet(){
+      return dataArray.map(function(item, index){
+        var imgSrc = item.img;
+        if (isHero) {
+          imgSrc = isDesktop ? "Imgs/hero-desk-" + (index + 1) + ".jpg" : "Imgs/hero-mob-" + (index + 1) + ".jpg";
+        }
+        return (
+          '<div class="' + (isHero ? 'hero-card' : 'product-card') + '" data-img="' + imgSrc + '">' +
+            '<img src="' + imgSrc + '" alt="Mirna 2026" loading="lazy" onerror="this.parentNode.remove();">' +
+          '</div>'
+        );
+      }).join("");
+    }
+
+    track.innerHTML = renderSet() + renderSet() + renderSet();
+
+    function scrollCarousel(dir) {
+      var scrollAmount = wrap.offsetWidth * 0.7; 
+      wrap.scrollBy({ left: dir * scrollAmount, behavior: 'smooth' });
+      resetAutoPlay();
+    }
+    
+    if (btnPrev) btnPrev.addEventListener("click", function(){ scrollCarousel(-1); });
+    if (btnNext) btnNext.addEventListener("click", function(){ scrollCarousel(1); });
+
+    var autoPlayTimer;
+    function startAutoPlay() {
+      autoPlayTimer = setInterval(function(){
+        if (wrap.scrollLeft + wrap.offsetWidth >= track.scrollWidth - 150) {
+          wrap.scrollBy({ left: - (track.scrollWidth / 2), behavior: 'auto' }); 
+        } else {
+          wrap.scrollBy({ left: wrap.offsetWidth * 0.5, behavior: 'smooth' }); 
+        }
+      }, 1500);
+    }
+    
+    function resetAutoPlay() { 
+      clearInterval(autoPlayTimer); 
+      startAutoPlay(); 
+    }
+
+    wrap.addEventListener('touchstart', function() { clearInterval(autoPlayTimer); }, {passive:true});
+    wrap.addEventListener('touchend', function() { startAutoPlay(); }, {passive:true});
+    wrap.addEventListener('mouseenter', function() { clearInterval(autoPlayTimer); });
+    wrap.addEventListener('mouseleave', function() { startAutoPlay(); });
+
+    startAutoPlay();
+    return track;
+  }
+
+  var heroTrack = initCarousel("heroCarWrap", "heroCarTrack", "heroBtnPrev", "heroBtnNext", DUMMY_HERO, true);
+  
+  var sheetCSVUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRzSoWG-1bP5uE5q5kuGiX0L--W-FZb48sWI3pUXQJumUhcL9tnwtR9Y0PPDRf3ObbvD-EF8d7g2r4f/pub?gid=0&single=true&output=csv";
+
+  fetch(sheetCSVUrl)
+    .then(function(response) {
+      return response.text(); 
+    })
+    .then(function(csvText) {
+      var rows = csvText.split('\n');
+      var dynamicProducts = [];
+
+      for (var i = 1; i < rows.length; i++) {
+        var cols = rows[i].split(','); 
+        var imgUrl = cols[0] ? cols[0].trim().replace(/^"|"$/g, '').trim() : "";
+        
+        if (/^https?:\/\/[^\s]+/.test(imgUrl)) {
+          dynamicProducts.push({ img: imgUrl });
+        }
+      }
+
+      var prodSection = document.querySelector('.products-section');
+      
+      if (dynamicProducts.length > 0) {
+        if(prodSection) prodSection.style.display = 'block';
+        
+        var prodTrack = initCarousel("prodCarWrap", "prodCarTrack", "prodBtnPrev", "prodBtnNext", dynamicProducts, false);
+        attachLightbox(prodTrack);
+      } else {
+        if(prodSection) prodSection.style.display = 'none';
+      }
+    })
+    .catch(function(error) {
+      console.warn("Error al cargar el Excel de imágenes:", error);
+    });
+
+  var lightboxModal = document.getElementById("lightboxModal");
+  var lightboxImg = document.getElementById("lightboxImg");
+  
+  function attachLightbox(trackElement) {
+    if(!trackElement) return;
+    trackElement.addEventListener("click", function(e){
+      var card = e.target.closest('.product-card') || e.target.closest('.hero-card');
+      if(card){
+        lightboxImg.src = card.getAttribute('data-img');
+        openModal(lightboxModal);
+      }
+    });
+  }
+  attachLightbox(heroTrack);
+
+  document.getElementById("lightboxClose").addEventListener("click", function(){ closeModal(lightboxModal); });
+  lightboxModal.addEventListener("click", function(e){ if (e.target === lightboxModal) closeModal(lightboxModal); });
+
+  var cdDays, cdHours, cdMins, cdSecs, countdownTimer;
+  function pad(n){ return String(n).padStart(2, "0"); }
+  
+  function tickCountdown(){
+    var now = new Date(); 
+    var diff = EVENT_START - now;
+    
+    if (diff <= 0){
+      cdDays.textContent = "00"; cdHours.textContent = "00"; cdMins.textContent = "00"; cdSecs.textContent = "00";
+      var caption = document.querySelector(".countdown-caption");
+      if (caption) caption.textContent = (now < EVENT_END) ? "¡El showroom está abierto ahora mismo!" : "Gracias por vivir la magia con nosotros";
+      clearInterval(countdownTimer); 
+      return;
+    }
+    
+    var totalSeconds = Math.floor(diff / 1000);
+    var days  = Math.floor(totalSeconds / 86400); 
+    var hours = Math.floor((totalSeconds % 86400) / 3600);
+    var mins  = Math.floor((totalSeconds % 3600) / 60); 
+    var secs  = totalSeconds % 60;
+    
+    cdDays.textContent  = pad(days); 
+    cdHours.textContent = pad(hours); 
+    cdMins.textContent  = pad(mins); 
+    cdSecs.textContent  = pad(secs);
+  }
+  
+  function startCountdown(){
+    cdDays = document.getElementById("cd-days"); 
+    cdHours = document.getElementById("cd-hours");
+    cdMins = document.getElementById("cd-mins"); 
+    cdSecs = document.getElementById("cd-secs");
+    tickCountdown(); 
+    countdownTimer = setInterval(tickCountdown, 1000);
+  }
+
+  function openModal(overlay){ 
+    overlay.classList.add("is-visible"); 
+    overlay.removeAttribute("aria-hidden"); 
+    document.body.style.overflow = "hidden"; 
+  }
+  
+  function closeModal(overlay){ 
+    overlay.classList.remove("is-visible"); 
+    overlay.setAttribute("aria-hidden", "true"); 
+    document.body.style.overflow = ""; 
+  }
+
+  var mapModal = document.getElementById("mapModal");
+  document.getElementById("btnMap").addEventListener("click", function(){ openModal(mapModal); });
+  document.getElementById("mapModalClose").addEventListener("click", function(){ closeModal(mapModal); });
+  mapModal.addEventListener("click", function(e){ if (e.target === mapModal) closeModal(mapModal); });
+
+  var rsvpModal = document.getElementById("rsvpModal");
+  var rsvpIframe = document.getElementById("rsvpIframe");
+  var rsvpLoading = document.getElementById("rsvpLoading");
+  var rsvpLoaded = false;
+  
+  document.getElementById("btnRSVP").addEventListener("click", function(){
+    if (!rsvpLoaded){ 
+      rsvpIframe.src = rsvpIframe.getAttribute("data-src"); 
+      rsvpLoaded = true; 
+    }
+    openModal(rsvpModal);
+  });
+  
+  rsvpIframe.addEventListener("load", function(){ rsvpLoading.classList.add("is-hidden"); });
+  document.getElementById("rsvpModalClose").addEventListener("click", function(){ closeModal(rsvpModal); });
+  rsvpModal.addEventListener("click", function(e){ if (e.target === rsvpModal) closeModal(rsvpModal); });
+
+  document.addEventListener("keydown", function(e){
+    if (e.key !== "Escape") return;
+    if (mapModal.classList.contains("is-visible")) closeModal(mapModal);
+    if (rsvpModal.classList.contains("is-visible")) closeModal(rsvpModal);
+    if (lightboxModal && lightboxModal.classList.contains("is-visible")) closeModal(lightboxModal);
+  });
+
+  function toGCalDate(d){ return d.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z"; }
+  
+  document.getElementById("btnReminder").addEventListener("click", function(){
+    var dates = toGCalDate(EVENT_START) + "/" + toGCalDate(EVENT_END);
+    var params = new URLSearchParams({ action: "TEMPLATE", text: EVENT_TITLE, dates: dates, details: EVENT_DESC, location: EVENT_LOCATION });
+    window.open("https://calendar.google.com/calendar/render?" + params.toString(), "_blank", "noopener");
+  });
+
+  // Funcionalidad para pausar el video si el usuario cambia de pestaña o minimiza
+  document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
+      if (clausy1 && !clausy1.paused) {
+        clausy1.pause();
+        clausy1.dataset.wasPlaying = "true";
+      }
+    } else {
+      if (clausy1 && clausy1.dataset.wasPlaying === "true") {
+        clausy1.play().catch(function(e){ console.warn("Error al reanudar video de Clausy", e); });
+        clausy1.dataset.wasPlaying = "false";
+      }
+    }
+  });
+
+})();
+</script>
+</body>
+</html>
