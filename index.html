@@ -388,6 +388,17 @@ img { max-width: 100%; display: block; }
 .rsvp-loading.is-hidden { opacity: 0; pointer-events: none; }
 .rsvp-spinner { width: 28px; height: 28px; border-radius: 50%; border: 3px solid var(--gold-soft); border-top-color: var(--wax); animation: spin .8s linear infinite; }
 
+/* MENSAJE DE ÉXITO AL CONFIRMAR ASISTENCIA */
+.rsvp-success {
+  position: absolute; inset: 0; background: var(--cream); z-index: 5;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+  opacity: 0; visibility: hidden; transition: opacity .4s ease, visibility .4s ease; padding: 2em;
+}
+.rsvp-success.is-visible { opacity: 1; visibility: visible; }
+.rsvp-success-icon { font-size: 3rem; margin-bottom: 0.2em; animation: bounceHint 2s infinite; }
+.rsvp-success h4 { font-family: var(--font-display); font-size: 1.4rem; color: var(--ink-green); margin: 0 0 0.5em; }
+.rsvp-success p { color: var(--text-dim); font-size: 0.95rem; margin: 0; }
+
 /* =====================================================
    RESPONSIVE
    ===================================================== */
@@ -636,6 +647,14 @@ img { max-width: 100%; display: block; }
     <h3 class="modal-title" id="rsvpModalTitle">Confirmar asistencia</h3>
     <div class="rsvp-frame-wrap">
       <div class="rsvp-loading" id="rsvpLoading"><span class="rsvp-spinner"></span><span>Cargando formulario…</span></div>
+      
+      <!-- CONTENEDOR DEL MENSAJE DE ÉXITO -->
+      <div class="rsvp-success" id="rsvpSuccess" aria-hidden="true">
+        <div class="rsvp-success-icon">✨</div>
+        <h4>¡Gracias por confirmar tu asistencia!</h4>
+        <p>Te esperamos para vivir la magia.</p>
+      </div>
+
       <iframe id="rsvpIframe" class="rsvp-iframe" src="" data-src="https://docs.google.com/forms/d/e/1FAIpQLSfedSos302Ex8IAuMK7-FrpXMVuezhccrf_VReo1-s_n9575g/viewform?usp=publish-editor&embedded=true" title="Formulario de confirmación de asistencia"></iframe>
       <div class="rsvp-fade" aria-hidden="true"></div>
     </div>
@@ -723,7 +742,6 @@ img { max-width: 100%; display: block; }
       var scrollHint = document.getElementById("scrollHintPopup");
       if(scrollHint) {
         scrollHint.classList.add("is-visible");
-        // Ajustado a 4000ms (4 segundos)
         setTimeout(function() {
           scrollHint.classList.remove("is-visible");
         }, 4000);
@@ -911,10 +929,13 @@ img { max-width: 100%; display: block; }
   document.getElementById("mapModalClose").addEventListener("click", function(){ closeModal(mapModal); });
   mapModal.addEventListener("click", function(e){ if (e.target === mapModal) closeModal(mapModal); });
 
+  // LÓGICA MODIFICADA PARA EL FORMULARIO DE RSVP
   var rsvpModal = document.getElementById("rsvpModal");
   var rsvpIframe = document.getElementById("rsvpIframe");
   var rsvpLoading = document.getElementById("rsvpLoading");
+  var rsvpSuccess = document.getElementById("rsvpSuccess");
   var rsvpLoaded = false;
+  var rsvpLoadCount = 0; // Para contar las recargas del iframe
   
   document.getElementById("btnRSVP").addEventListener("click", function(){
     if (!rsvpLoaded){ 
@@ -924,7 +945,32 @@ img { max-width: 100%; display: block; }
     openModal(rsvpModal);
   });
   
-  rsvpIframe.addEventListener("load", function(){ rsvpLoading.classList.add("is-hidden"); });
+  rsvpIframe.addEventListener("load", function(){ 
+    rsvpLoadCount++;
+    
+    if (rsvpLoadCount === 1) {
+      // Primera carga: el formulario normal cargó
+      rsvpLoading.classList.add("is-hidden"); 
+    } else if (rsvpLoadCount === 2) {
+      // Segunda carga: el usuario envió el formulario
+      rsvpSuccess.classList.add("is-visible");
+      
+      // Cerrar el modal después de 5 segundos
+      setTimeout(function() {
+        closeModal(rsvpModal);
+        
+        // Resetear el formulario en el fondo por si quieren abrirlo de nuevo
+        setTimeout(function(){
+          rsvpSuccess.classList.remove("is-visible");
+          rsvpIframe.src = rsvpIframe.getAttribute("data-src"); 
+          rsvpLoadCount = 0;
+          rsvpLoading.classList.remove("is-hidden");
+        }, 500); // Dar tiempo a que el modal termine la animación de cerrarse
+        
+      }, 5000);
+    }
+  });
+
   document.getElementById("rsvpModalClose").addEventListener("click", function(){ closeModal(rsvpModal); });
   rsvpModal.addEventListener("click", function(e){ if (e.target === rsvpModal) closeModal(rsvpModal); });
 
